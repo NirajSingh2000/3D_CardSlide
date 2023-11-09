@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .blink {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+                text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+            }
+            100% {
+                opacity: 1;
+                text-shadow: none;
+            }
+        }
+
+        .glow {
+            animation: glow 2s infinite;
+        }
+
+        @keyframes glow {
+            0% {
+                text-shadow: none;
+            }
+            50% {
+                text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+            }
+            100% {
+                text-shadow: none;
+            }
+        }
+        @keyframes glow {
+            0% { box-shadow: 0 0 10px #ff0000; }
+            50% { box-shadow: 0 0 20px #13bf47; }
+            100% { box-shadow: 0 0 10px #5c0cbf; }
+        }
+        
+    </style>
+</head>
+<body>
+    <h1 class="blink glow">Blink and Glow Text</h1>
+    <p class="blink">Blinking Text</p>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjnBZudGF7gHfV1-IH99L6IAMLvHqzwfLuyhGryFaHcXbr_syft7VyAUpusFSeLGSwJZ8&usqp=CAU" alt="Glowing Image" class="glow">
+</body>
+</body>
+</html>

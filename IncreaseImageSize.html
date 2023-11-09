@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body{
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            position: absolute;
+            top: 25%;
+            left: 40%;
+            width: 200px;
+            
+            padding: 10px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .container:hover {
+            transform: scale(1.1); /* Increases the size of the container */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Adds a glowing effect */
+        }
+
+        .container img {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="../Niraj Image 40kb.jpg" alt="Image">
+        <p>Hover over the image to see it grow and glow.</p>
+    </div>
+</body>
+</html>

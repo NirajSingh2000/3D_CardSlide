@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation Button</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .middle{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            text-align: center;
+        }
+        .btn{
+            background: none;
+            border: 2px solid #000;
+            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            text-transform: uppercase;
+            padding: 12px 20px;
+            min-width: 200px;
+            margin: 10px;
+            cursor: progress;
+            transition: color 0.4s linear;
+            position: relative;
+        }
+        .btn:hover{
+            color: #fff;
+        }
+        .btn::before{
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: -1;
+            transition: transform 0.5s;
+            transform-origin: 0 0;
+            transition-timing-function: cubic-bezier(0.5,1.6,0.4,0.7);
+        }
+        .btn1::before{
+            transform: scaleX(0);
+        }
+        .btn2::before{
+            transform: scaleY(0);
+        }
+        .btn1:hover::before{
+            transform: scaleX(1);
+        }
+        .btn2:hover::before{
+            transform: scaleY(1);
+        }
+        /*CSS for Anchor Button */
+        a{
+            position: relative;
+            display: inline-block;
+            font-size: 1.5em;
+            letter-spacing: .1em;
+            color: #0ef;
+            background: #000;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: 2px solid #0ef;
+            padding: 10px 30px;
+            transform: translate(50%,70%);
+            z-index: 1;
+            overflow: hidden;
+            transition: color 1s, box-shadow 1s;
+            
+        }
+        a:hover{
+            transition-delay: 0s, 1s;
+            color: #fff;
+            background: #000;
+            box-shadow: 0 0 10px #0ef,0 0 20px #0ef,0 0 40px #0ef,0 0 80px #0ef;
+        }
+        a::before{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -50px;
+            width: 0;
+            height: 100%;
+            background: #0ef;
+            transform: skewX(35deg);
+            transition: 1s;
+            z-index: -1;
+        }
+        a:hover::before{
+            width: 100%;
+        }
+/*Neon Button*/
+        .neon{
+            transform: translate(100%,100%);
+            position: relative;
+            background: #444;
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            border: none;
+            letter-spacing: 0.1rem;
+            font-size: 1rem;
+            padding: 1rem 3rem;
+            transition: 0.2s;
+        }
+        .neon:hover{
+            letter-spacing: 0.2rem;
+            padding: 1.1rem 3.1rem;
+            color: var(--clr);
+            animation: box 3s infinite;
+        }
+        .neon::before{
+            content: "";
+            position: absolute;
+            inset: 2px;
+            background: #000;
+        }
+        .neon span{
+            position: relative;
+            z-index: 1;
+        }
+        .neon i{
+            position: absolute;
+            inset: 0;
+            display: block;
+        }
+        .neon i::before{
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 2px;
+            left: 80%;
+            top: -2px;
+            border: 2px solid var(--clr);
+            background: #000;
+            transition: 0.2s;
+        }
+        .neon:hover i::before{
+            width: 15px;
+            left: 20%;
+            animation: move 3s infinite;
+        }
+        .neon i::after{
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 2px;
+            left: 20%;
+            bottom: -2px;
+            border: 2px solid var(--clr);
+            background: #000;
+            transition: 0.2s;
+        }
+        .neon:hover i::after{
+            width: 15px;
+            left: 70%;
+            animation: move 3s infinite;
+        }
+        @keyframes move{
+            0%{
+                transform: translateX(0);
+            }
+            50%{
+                transform: translateX(5px);
+            }
+            100%{
+                transform: translateX(0);
+            }
+        }
+        @keyframes box{
+            0%{
+                box-shadow: #000;
+            }
+            50%{
+                box-shadow: 0 0 25px var(--clr);
+            }
+            100%{
+                box-shadow: #000;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="middle">
+        <button class="btn btn1">Hover Me</button>
+        <button class="btn btn2">hover me</button>
+    </div>
+    <a href="#">Button</a>
+    <!--Neon Button-->
+    <button class="neon" style="--clr:#39FF14">
+        <span>Button</span>
+        <i></i>
+    </button>
+</body>
+</html>
